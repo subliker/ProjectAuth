@@ -89,6 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wrapper form {
+  max-height: 80vh;
   padding: 30px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   webkit-text-security: square;
 }
 
-.wrapper form label, .wrapper form p {
+.wrapper form p {
   margin-top: 20px;
   font-weight: 600;
 }
@@ -146,5 +147,62 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   background-image: -webkit-gradient(linear, left top, right top, from(#904e95), to(#e96443));
   background-image: linear-gradient(to right, #904e95, #e96443);
+  margin-bottom: 10px;
+}
+
+.wrapper form .formInputs {
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper form .formInputs .left, .wrapper form .formInputs .right {
+  max-width: 45%;
+}
+
+.wrapper form .formInputs .left label, .wrapper form .formInputs .right label {
+  font-weight: 600;
+}
+
+.wrapper .profile {
+  max-height: 80vh;
+  padding: 30px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #303030;
+  border: 15px solid #212121;
+  border-radius: 15px;
+  font-size: 28px;
+  text-align: left;
+}
+
+.wrapper .profile .profileRow {
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper .profile .profileRow .left, .wrapper .profile .profileRow .right {
+  max-width: 45%;
+}
+
+.wrapper .profile .profileRow .left label, .wrapper .profile .profileRow .right label {
+  font-weight: 600;
 }
 /*# sourceMappingURL=style.css.map */

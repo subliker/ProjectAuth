@@ -29,6 +29,7 @@ $darkThemeBorder: #212121;
     justify-content: center;
 
     form{
+        max-height: 80vh;
         padding: 30px 50px;
 
         display: flex;
@@ -52,7 +53,7 @@ $darkThemeBorder: #212121;
             border-bottom: 1px solid linear-gradient(to right, #904e95, #e96443);
             webkit-text-security: square;
         }
-        label,p{
+        p{
             margin-top: 20px;
             font-weight: 600;
         }
@@ -74,6 +75,47 @@ $darkThemeBorder: #212121;
             width: 100%;
             height: 2px;
             background-image: linear-gradient(to right, #904e95, #e96443);
+            margin-bottom: 10px;
+        }
+        .formInputs{
+            width: 850px;
+            display: flex;
+            justify-content: space-between;
+            .left,.right{
+                max-width: 45%;
+
+                label{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .profile{
+        max-height: 80vh;
+        padding: 30px 50px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        background-color: $darkThemeBack;
+        border: 15px solid $darkThemeBorder;
+        border-radius: 15px;
+
+        font-size: 28px;
+        text-align: left;
+        
+        .profileRow{
+            width: 850px;
+            display: flex;
+            justify-content: space-between;
+            .left,.right{
+                max-width: 45%;
+
+                label{
+                    font-weight: 600;
+                }
+            }
         }
     }
 }

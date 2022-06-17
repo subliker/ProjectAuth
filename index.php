@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['activeUser'])){
+        header('Location: profile.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +22,12 @@
 </head>
 <body>
     <div class="wrapper">
-        <form class="form">
-            <label class="loginText">Логин:</label>
-            <input type="text" class="loginInput"/>
+        <form class="form" action="core/signin.php" method="POST">
+            <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="loginText">Логин:</label>
+            <input style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="login" type="text" class="loginInput"/>
             <div class="hl"></div>
-            <label class="passwordText">Пароль:</label>
-            <input type="password" class="passwordInput"/>
+            <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="passwordText">Пароль:</label>
+            <input style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';unset($_SESSION['authErr']);} ?>" name="password" type="password" class="passwordInput"/>
             <div class="hl"></div>
             <button type="submit">Войти</button>
             <p>Нет аккаунта? <a href="register.php">создайте</a></p>

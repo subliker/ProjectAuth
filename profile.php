@@ -1,3 +1,10 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['activeUser'])){
+        header('Location: index.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,19 +21,52 @@
 
 </head>
 <body>
+    <div class="pop_up" style="display: none;">
+        <div onclick='dADBtn.click()' class="dragAndDrop">
+            <span>Перетащите файл сюда</span>
+            <span style="display:none;color: red;margin-top:10px;" class="dragAndDropErr">ОШИБКА</span>
+        </div>
+        <form action="core/addavatar.php" style="display: none;" enctype="multipart/form-data" method="post">
+            <input name="0" onchange="uploadClickDAD()" class="dragAndDropBtn" type="file"  name="" id="">
+            <button class="dragAndDropSubmit" type="submit"></button>
+        </form>
+    </div>
     <div class="wrapper">
         <div class="profile">
             <div class="profileRow">
-                <div class="left">
-                    
-                </div>
+                <?php
+                    if($_SESSION['activeUser']['avatar'])
+                    {
+                        echo "<img class='leftImg' onclick='changePhoto()' src='".$_SESSION['activeUser']['avatar']."' alt=''>";
+                    }
+                    else{ 
+                        echo "<a class='leftText' onclick='changePhoto()'>Добавить фото</a>";
+                    }
+                ?>
                 <div class="right">
-                    
-                </div>
+                    <div class="">
+                    <div class="">
+                            <label>Ваше имя:</label>
+                            <span ><?php echo $_SESSION['activeUser']['full_name'];?></span>
+                        </div>
+                        <div class="">
+                            <label>Логин:</label>
+                            <span ><?php echo $_SESSION['activeUser']['login'];?></span>
+                        </div>
+                        <div class="">
+                            <label>Ваша почта:</label>
+                            <span ><?php echo $_SESSION['activeUser']['email'];?></span>
+                        </div>
+                        <div class="">
+                            <label>Ваша дата рождения:</label>
+                            <span ><?php echo $_SESSION['activeUser']['date'];?></span>
+                        </div>
+                        </div>
+                        <a href="core/logout.php">Выйти</a>
+                    </div>
             </div>
-            <button type="submit">Регистрироваться</button>
-            <p>Уже есть аккаунт? <a href="index.php">войдите</a></p>
         </div>
     </div>
+    <script src="JS/app.js"></script>
 </body>
 </html>

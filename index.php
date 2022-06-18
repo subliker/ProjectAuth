@@ -23,8 +23,8 @@
 <body>
     <div class="wrapper">
         <form class="form" action="core/signin.php" method="POST">
-            <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="loginText">Логин:</label>
-            <input required style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="login" type="text" class="loginInput"/>
+            <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="loginText">Логин или эл.почта:</label>
+            <input required style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="loginOrEmail" type="text" class="loginInput"/>
             <div class="hl"></div>
             <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="passwordText">Пароль:</label>
             <input required style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="password" type="password" class="passwordInput"/>

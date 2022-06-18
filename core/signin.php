@@ -2,10 +2,11 @@
     session_start();
     require('connect.php');
     
-    $login = $_POST['login'];
+    $loginOrEmail = $_POST['loginOrEmail'];
+    $lOEtype = strpos($loginOrEmail,'@') < strpos($loginOrEmail,'.')?'email':'login';
     $password = $_POST['password'];
 
-    $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$login'");
+    $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `$lOEtype` = '$loginOrEmail'");
     if(mysqli_num_rows($check_user)){
         $userData = mysqli_fetch_assoc($check_user);
 

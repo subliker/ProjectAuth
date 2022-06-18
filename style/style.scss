@@ -52,7 +52,7 @@ $darkThemeBorder: #212121;
             border-bottom: 1px solid linear-gradient(to right, #904e95, #e96443);
             
         }
-        p{
+        label,p{
             margin-top: 20px;
             font-weight: 600;
         }
@@ -123,6 +123,7 @@ $darkThemeBorder: #212121;
                 cursor: pointer;
             }
             .right{
+                max-width: 450px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;

@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if(isset($_SESSION['activeUser'])){
+        header('Location: index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,25 +25,25 @@
         <form class="form" method="POST" action="core/signup.php">
             <div class="formInputs">
                 <div class="left">
-                    <label class="loginText">Логин:</label>
-                    <input name="login" type="text" class="loginInput"/>
+                    <label style="<?php if (isset($_SESSION['notUniqueLogin'])){echo ';color:red;';} unset($_SESSION['notUniqueLogin']); ?>" class="loginText">Логин:</label>
+                    <input required name="login" type="text" class="loginInput"/>
                     <div class="hl"></div>
-                    <label style="<?php if (isset($_SESSION['notSamePswrd'])){echo ';color:red;';} ?>" class="passwordText">Пароль:</label>
-                    <input name="password" type="password" class="passwordInput"/>
+                    <label style="<?php if (isset($_SESSION['notSamePassword'])||isset($_SESSION['notRightPassword'])){echo ';color:red;';} ?>" class="passwordText">Пароль:</label>
+                    <input required name="password" type="password" class="passwordInput"/>
                     <div class="hl"></div>
-                    <label style="<?php if (isset($_SESSION['notSamePswrd'])){echo ';color:red;';unset($_SESSION['notSamePswrd']);} ?>" class="cpasswordText">Подтвердите пароль:</label>
-                    <input name="cpassword" type="password" class="cspasswordInput"/>
+                    <label style="<?php if (isset($_SESSION['notSamePassword'])||isset($_SESSION['notRightPassword'])){echo ';color:red;';unset($_SESSION['notSamePassword']);unset($_SESSION['notRightPassword']);} ?>" class="cpasswordText">Подтвердите пароль:</label>
+                    <input required name="cpassword" type="password" class="cspasswordInput"/>
                     <div class="hl"></div>
                 </div>
                 <div class="right">
-                    <label class="emailText">E-MAIL:</label>
-                    <input name="email" type="email" class="emailInput"/>
+                    <label style="<?php if (isset($_SESSION['notUniqueEmail'])){echo ';color:red;';} unset($_SESSION['notUniqueEmail']); ?>" class="emailText">E-MAIL:</label>
+                    <input required name="email" type="email" class="emailInput"/>
                     <div class="hl"></div>
                     <label class="full_nameText">Ваше имя:</label>
-                    <input name="full_name" type="text" class="full_nameInput"/>
+                    <input required name="full_name" type="text" class="full_nameInput"/>
                     <div class="hl"></div>
                     <label class="dateText">Дата рождения:</label>
-                    <input name="dateOfBirth" type="date" class="dateInput"/>
+                    <input required name="dateOfBirth" type="date" class="dateInput"/>
                     <div class="hl"></div>
                 </div>
             </div>

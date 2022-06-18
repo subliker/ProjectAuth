@@ -161,8 +161,9 @@ $darkThemeBorder: #212121;
         justify-content: center;
         border: 15px dotted rgba(255, 255, 255, 0.4);
         border-radius: 60px;
-
-        
+    }
+    span{
+        pointer-events: none;
     }
     .active{
         background-color: rgba(48, 48, 48,0.8);

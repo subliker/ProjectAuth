@@ -200,6 +200,9 @@ h1, h2, h3, h4, h5, h6 {
   border: 15px dotted rgba(255, 255, 255, 0.4);
   border-radius: 60px;
 }
+.pop_up span {
+  pointer-events: none;
+}
 .pop_up .active {
   background-color: rgba(48, 48, 48, 0.8);
   border: 15px dotted rgba(255, 255, 255, 0.8);

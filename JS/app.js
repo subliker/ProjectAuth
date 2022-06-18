@@ -3,22 +3,36 @@ dAD = document.querySelector('.dragAndDrop'),
 types = ['image/jpeg','image/png'],
 dADBtn = document.querySelector('.dragAndDropBtn'),
 dADSbm = document.querySelector('.dragAndDropSubmit'),
-dADErr = document.querySelector('.dragAndDropErr')
+dADErr = document.querySelector('.dragAndDropErr'),
+dADC = document.querySelector('dragAndDropChild')
 
-const changePhoto = () =>{
-    popUp.style.display = 'flex'
+const dADHighlight = () =>{
+    dAD.classList.add('active')
 }
 
-dAD.addEventListener('dragenter',(e) =>{
+const changePhoto = (status) =>{
+    if(status){
+        popUp.style.display = 'flex'
+    }
+    else{
+        popUp.style.display = 'none'
+    }
+}
+
+dAD.addEventListener('click',(e) =>{
+    dADBtn.click()
+    e.stopPropagation()
+})
+dAD.addEventListener('dragover',(e) =>{
     e.preventDefault()
-    dAD.classList.add('active')
+})
+dAD.addEventListener('dragenter',(e) =>{
+    dADHighlight()
+    e.preventDefault()
 })
 dAD.addEventListener('dragleave',(e) =>{
     e.preventDefault()
     dAD.classList.remove('active')
-})
-dAD.addEventListener('dragover',(e)=>{
-    e.preventDefault()
 })
 dAD.addEventListener('drop',(e)=>{
     e.preventDefault()
@@ -44,6 +58,7 @@ dAD.addEventListener('drop',(e)=>{
         dADErr.style.display = 'inherit'
     }
 })
+
 const uploadClickDAD = () =>{
     if (dADBtn.files.length){
         dADSbm.click()

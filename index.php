@@ -24,13 +24,19 @@
     <div class="wrapper">
         <form class="form" action="core/signin.php" method="POST">
             <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="loginText">Логин:</label>
-            <input style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="login" type="text" class="loginInput"/>
+            <input required style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="login" type="text" class="loginInput"/>
             <div class="hl"></div>
             <label style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" class="passwordText">Пароль:</label>
-            <input style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';unset($_SESSION['authErr']);} ?>" name="password" type="password" class="passwordInput"/>
+            <input required style="<?php if (isset($_SESSION['authErr'])){echo ';color:red;';} ?>" name="password" type="password" class="passwordInput"/>
             <div class="hl"></div>
             <button type="submit">Войти</button>
             <p>Нет аккаунта? <a href="register.php">создайте</a></p>
+            <?php
+                if(isset($_SESSION['authErr'])){
+                    echo "<p style='color:red;'>".$_SESSION['authErr']."</p>";
+                    unset($_SESSION['authErr']);
+                }
+            ?>
         </form>
     </div>
 </body>

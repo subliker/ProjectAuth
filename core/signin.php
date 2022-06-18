@@ -21,6 +21,10 @@
             ];
             header("Location: ../profile.php");
         }
+        else{
+            $_SESSION['authErr']='Неправильный логин или пароль';
+            header("Location: ../index.php");
+        }
         
     }else{
         $_SESSION['authErr']='Неправильный логин или пароль';

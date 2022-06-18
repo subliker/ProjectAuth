@@ -22,8 +22,8 @@
 </head>
 <body>
     <div class="pop_up" style="display: none;">
-        <div onclick='dADBtn.click()' class="dragAndDrop">
-            <span>Перетащите файл сюда</span>
+        <div class="dragAndDrop">
+            <span class="dragAndDropChild">Перетащите файл сюда</span>
             <span style="display:none;color: red;margin-top:10px;" class="dragAndDropErr">ОШИБКА</span>
         </div>
         <form action="core/addavatar.php" style="display: none;" enctype="multipart/form-data" method="post">
@@ -37,10 +37,10 @@
                 <?php
                     if($_SESSION['activeUser']['avatar'])
                     {
-                        echo "<img class='leftImg' onclick='changePhoto()' src='".$_SESSION['activeUser']['avatar']."' alt=''>";
+                        echo "<img class='leftImg' onclick='changePhoto(true)' src='".$_SESSION['activeUser']['avatar']."' alt=''>";
                     }
                     else{ 
-                        echo "<a class='leftText' onclick='changePhoto()'>Добавить фото</a>";
+                        echo "<a class='leftText' onclick='changePhoto(true)'>Добавить фото</a>";
                     }
                 ?>
                 <div class="right">

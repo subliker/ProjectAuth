@@ -4,6 +4,10 @@
 
     $user_id = $_SESSION['activeUser']['id'];
     $avatar = $_FILES[0];
+    if(!is_dir('../uploads')){
+        mkdir('../uploads', 0777, true);
+    }
+    
     $avatarPath = "uploads/".time().$avatar['name'];
     $uploadAvatar = mysqli_query($connect,"UPDATE `users` set `avatar` ='$avatarPath' WHERE id = '$user_id'");
     move_uploaded_file($avatar['tmp_name'],"../".$avatarPath);

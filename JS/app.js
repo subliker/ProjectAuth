@@ -39,7 +39,7 @@ dAD.addEventListener('drop',(e)=>{
     let files = e.dataTransfer.files
     if(files.length === 1){
         let file = files[0]
-        if(types.includes(file.type)){
+        if(types.includes(file.type) & file.size <= 90000){
             dADErr.style.display = 'none'
             let formData = new FormData
             formData.append(0,file)
@@ -47,7 +47,7 @@ dAD.addEventListener('drop',(e)=>{
                 method: 'POST',
                 body: formData
         })
-            location.reload()
+            //location.reload()
         }else{
             dADErr.style.display = 'inherit'
         }

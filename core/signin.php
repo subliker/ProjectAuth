@@ -3,7 +3,7 @@
     require('connect.php');
     
     $loginOrEmail = $_POST['loginOrEmail'];
-    $lOEtype = strpos($loginOrEmail,'@') < strpos($loginOrEmail,'.')?'email':'login';
+    $lOEtype = filter_var($loginOrEmail,FILTER_VALIDATE_EMAIL)?'email':'login';
     $password = $_POST['password'];
 
     $check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `$lOEtype` = '$loginOrEmail'");
